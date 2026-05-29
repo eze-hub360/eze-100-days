@@ -23,11 +23,20 @@ const app = express();
 const server = http.createServer(app);
 
 // CORS configuration - FIXED
+// app.use(cors({
+//     origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: [
+        'http://localhost:5173',
+        'http://localhost:5174',
+        'http://localhost:5175',
+        'https://eze-100-days.vercel.app'
+    ],
+    credentials: true
 }));
 
 // Body parser middleware
@@ -37,7 +46,8 @@ app.use(express.urlencoded({ extended: true }));
 // Socket.IO setup
 const io = socketio(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+        origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175', 'https://eze-100-days.vercel.app'],
+        
         credentials: true
     }
 });
