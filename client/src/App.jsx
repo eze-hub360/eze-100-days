@@ -19,6 +19,8 @@ import AnalyticsPage from './pages/AnalyticsPage';
 import CommunityPage from './pages/CommunityPage';
 import LeaderboardPage from './pages/LeaderboardPage';
 import ProfilePage from './pages/ProfilePage';
+import AuthCallback from './pages/AuthCallback';
+
 
 // Protected Route
 import ProtectedRoute from './routes/ProtectedRoute';
@@ -57,6 +59,8 @@ useEffect(() => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
+
         
         <Route element={<ProtectedRoute><MainLayout /></ProtectedRoute>}>
           <Route path="/dashboard" element={<Dashboard />} />

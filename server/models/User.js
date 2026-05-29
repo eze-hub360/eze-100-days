@@ -13,6 +13,12 @@ const userSchema = new mongoose.Schema({
     unique: true,
     lowercase: true
   },
+   googleId: {
+    type: String,
+    sparse: true,
+    unique: true
+  },
+  
   password: {
     type: String,
     required: [true, 'Please add a password'],
@@ -50,9 +56,12 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   }
+
 }, {
   timestamps: true
 });
+
+
 
 // Encrypt password
 userSchema.pre('save', async function() {
